@@ -1,0 +1,162 @@
+### 2.3.0 | 2024-04-18
+- Fixed an issue where the feed isn't processed when using the Create Conversation button on the Entry Detail page.
+
+### 2.2.0 | 2024-01-23
+- Added the [gform_helpscout_display_enable_custom_app_setting](https://docs.gravityforms.com/gform_helpscout_display_enable_custom_app_setting/) filter.
+- Added support for async (background) feed processing to improve form submission performance.
+- Fixed a PHP 8.2 deprecation notice that occurs when selecting "I want to use a custom Help Scout app" on the plugin settings page.
+- Fixed an issue where the Merge Tags button is not available on the feed settings page for text area fields.
+- Fixed an issue that causes a notice to display when creating a new feed on sites running PHP 8.1.
+- Fixed an issue where the Help Scout primary account email address is used as the reply-to email address even if the form submission data has a different email address.
+
+### 2.1 | 2022-02-02
+- Fixed an issue where connecting to Help Scout fails after the user is redirected back from Help Scout.
+- Fixed an issue where conversation creation can fail if the customer first name is empty.
+
+
+### 2.0 | 2021-05-06
+- Added a form settings menu icon for Gravity Forms 2.5
+
+
+### 1.15 | 2020-09-28
+- Updated support for Gravity Forms 2.5.
+- Fixed a PHP notice which occurs when after authenticating Help Scout account.
+
+
+### 1.14 | 2020-07-14
+- Added security enhancements.
+- Updated the get conversation requests for the entries list and detail pages to cache the conversations for one hour to reduce the number of requests to the Help Scout API.
+- Updated the Assignee setting so the choices are arranged into Teams and Users optgroups.
+- Fixed a performance issue with the link in the Conversation ID column of the entries list page which caused a 500 error on some hosting environments.
+- Fixed the Destination Mailbox setting only listing the first 50 mailboxes.
+
+
+### 1.13 | 2020-05-18
+- Added license key to GF authorization URL.
+- Added support for Gravity Forms 2.5.
+- Added the "Click here to refresh access token" button to the add-on settings page so the request can be attempted again when it times out.
+- Added translations for Hebrew, Hindi, Japanese, and Turkish.
+- Updated Gravity API domain.
+- Updated logging statements to clarify that the add-on is still connected to Help Scout when the token refresh times out.
+- Fixed an issue where HTML encoded characters could appear in conversation tags when displayed in Help Scout.
+- Fixed an issue where some existing customer details could be lost when the first and/or last name are updated.
+
+
+### 1.12.4
+- Fixed an issue where HTML encoded characters could appear in conversation tags when displayed in Help Scout.
+
+
+### 1.12.3
+- Updated Gravity API domain.
+
+
+### 1.12.2
+- Added license key to GF authorization URL.
+- Fixed an issue where some existing customer details could be lost when the first and/or last name are updated.
+
+
+### 1.12.1
+- Added the "Click here to refresh access token" button to the add-on settings page so the request can be attempted again when it times out.
+- Updated logging statements to clarify that the add-on is still connected to Help Scout when the token refresh times out.
+
+
+### 1.12 | 2019-11-06
+- Updated authentication logging statements.
+- Updated Javascript files, stylesheets to use minified versions.
+- Fixed auth token refresh failing when the add-on is using a custom app.
+
+
+### 1.11 | 2019-10-03
+- Fixed conversation creation failing when the last name is not provided for a new customer.
+
+
+### 1.10 | 2019-10-02
+- Fixed conversation creation failing when a file attachment exceeds the maximum size allowed by the Help Scout API (10 MB).
+- Fixed conversation creation failing when the authenticated user does not have permission to access the mailbox where the customer already exists.
+- Fixed conversation creation failing when merge tags used in the tags setting are for fields without values.
+- Fixed conversation creation failing when the assigned user has been deleted from the Help Scout account.
+
+
+### 1.9 | 2019-08-07
+- Added security enhancements.
+- Updated the minimum required Gravity Forms version to 2.1.
+- Fixed conversations with attachments not being created on servers where allow_url_fopen is disabled.
+
+
+### 1.8 | 2019-07-24
+- Added security enhancements.
+- Added the Help Scout Conversation Created notification event.
+- Added the *{helpscout:[prop]}(https://docs.gravityforms.com/helpscoutprop-merge-tag/)* merge tag for use in notifications sent after the conversation has been created. Supported properties are id, number, status, subject, and url.
+- Fixed a fatal error which can occur during feed processing if the get or create customer requests experience an issue.
+- Fixed the BCC email addresses not being added to the conversation.
+- Updated error logging statements.
+- Updated the feed settings so mapping the customer first name field is required.
+
+
+### 1.7 | 2019-06-11
+- Fixed uploaded files not being attached to conversations.
+
+
+### 1.6 | 2019-06-03
+- Added *[gform_helpscout_conversation](https://docs.gravityforms.com/gform_helpscout_conversation/)* filter to allow modifying the conversation before it is created in Help Scout.
+- Added support for updating first name and last name and adding new phone numbers when user with matching email is found in Help Scout.
+- Updated to use Help Scout's Mailbox API 2.0.
+- Fixed issue where authenticating with Help Scout via Gravity API was not working.
+- Fixed the conversation status changing from closed to active when adding a note.
+
+
+### 1.5 | 2018-04-03
+- Added security enhancements.
+- Added GPL to plugin header.
+- Added support for mapping customer phone number.
+- Added create conversation bulk action to entry list.
+- Added the *[gform_helpscout_process_note_shortcodes](https://docs.gravityforms.com/gform_helpscout_process_note_shortcodes/)* filter for enabling the processing of shortcodes placed in the note.
+- Updated Plugin URI and Author URI to use https.
+- Fixed conversations not creating when CC is enabled but value is empty.
+
+
+### 1.4 | 2017-01-05
+- Added support for the Gravity Forms 2.0 entry detail page changes.
+- Updated strings for translations.
+- Updated API library to latest version.
+- Fixed an issue with the conversation BCC emails not being set correctly.
+- Fixed conversation not being created if first or last name was longer than forty characters.
+
+
+### 1.3 | 2016-01-11
+- Added checkbox to add entry note form to post note to Help Scout conversation.
+- Added feed duplication support.
+- Added feed setting to create note for conversation.
+- Added panel to entry view page with Help Scout conversation details.
+- Added support for delaying feed processing until payment by PayPal Standard is successfully completed.
+- Enabled single feed submission.
+- Fixed an issue with the helpscout_conversation_id entry meta property so it's returned with the entry object.
+- Fixed an issue with the feed settings page and the conditional logic setting.
+- Fixed an issue where HTML entities would appear in conversation subject when using merge tags.
+- Fixed an issue where Help Scout would not include the conversation in the mailbox folder counts.
+- Fixed an issue where multi-file upload field attachments would not upload correctly.
+- Updated "Help Scout Conversation ID" entry list column to link to Help Scout conversation.
+- Updated feed processing to prevent multiple Help Scout conversations from being created.
+- Updated to store the created conversation id in the entry meta using the key 'helpscout_conversation_id'.
+- Updated the form field drop down for the Customer's Email Address to include hidden fields.
+
+
+### 1.2 | 2015-06-29
+- Added support for auto replies when conversation is created
+- Added the *[gform_helpscout_process_body_shortcodes](https://docs.gravityforms.com/gform_helpscout_process_body_shortcodes/)* filter for enabling the processing of shortcodes placed in the message body.
+- Fixed an issue with conversations being tagged as 'Untagged'.
+- Updated several functions to use new Add-On Framework functionality.
+- Updated feed processing to abort if value of mapped Email Address field is invalid or empty.
+
+
+### 1.1 | 2015-06-11
+- Added gf_helpscout() for easily getting an Help Scout instance.
+- Added additional logging statement to process_feed().
+- Added Spanish (es_ES) translation.
+- Fixed tags not being appropriately added to conversations.
+- Fixed PHP warning when no file attachments were provided.
+- Fixed Add-On not loading if Help Scout API class was already defined.
+
+
+### 1.0 | 2015-05-27
+- It's all new!
